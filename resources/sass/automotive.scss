@@ -1,0 +1,23 @@
+
+body {
+    background-color:  #fff;
+}
+
+header {
+    background-color:rgb(0,102,204);
+    color: #fff;
+    padding: 20px 0;
+    margin-bottom: 15px;
+
+    h1 {
+
+        a {
+            color:#fff;
+
+            &:visited, &:active, &:link {
+                color:#fff;
+            }
+        }
+
+    }
+}

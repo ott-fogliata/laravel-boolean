@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +19,17 @@ Route::get('/', function () {
 });
 
 
-Route::resource('auto', AutoController::class);
+Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('auto', 'PublicController@index')->name('public.auto.index'); // index
+Route::get('auto/{auto}', 'PublicController@show')->name('public.auto.show');  //show
+
+// Route::resource('auto', AutoController::class)->middleware('auth');
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->middleware('auth')
+    ->group(function () {
+        Route::resource('auto', AutoController::class);
+    });

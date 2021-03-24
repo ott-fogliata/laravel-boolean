@@ -27,27 +27,30 @@
                     <td>{{ $car->created_at }}</td>
                     <td>
 
-                        <a href="{{ route('auto.show', ['auto' => $car]) }}">
+                        <a href="{{ route('public.auto.show', ['auto' => $car]) }}">
                             <button class="btn btn-primary">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </a>
 
-                        <a href="{{ route('auto.edit', ['auto' => $car]) }}">
-                            <button class="btn btn-primary">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                        </a>
 
-                        <form action="{{ route('auto.destroy', ['auto' => $car]) }}" method="post">
-                            @csrf
-                            @method('DELETE')
+                        @if(Auth::check())
+                            <a href="{{ route('auto.edit', ['auto' => $car]) }}">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </a>
 
-                            <button type="submit" class="btn btn-danger">
-                                <i class="fas fa-meteor"></i>
-                            </button>
+                            <form action="{{ route('auto.destroy', ['auto' => $car]) }}" method="post">
+                                @csrf
+                                @method('DELETE')
 
-                        </form>
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-meteor"></i>
+                                </button>
+
+                            </form>
+                        @endif
 
                     </td>
                 </tr>

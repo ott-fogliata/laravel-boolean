@@ -11,7 +11,7 @@
 
     <header>
         <div class="container">
-            <h1><a href="{{ route('auto.index') }}">Concessionario Boolean</a></h1>
+            <h1><a href="{{ route('public.auto.index') }}">Concessionario Boolean</a></h1>
         </div>
     </header>
 
